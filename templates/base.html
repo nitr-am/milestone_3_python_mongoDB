@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">  
+    </head>
+    <body>
+        <h1>My Reading History!</h1>
+        {% block content %}
+        {% endblock %}
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('.collapsible').collapsible();
+                $('select').material_select();
+            });
+/* To select a date of book publication... rather just write the year.
+            $('.datepicker').pickadate({
+                selectMonths: false, // Creates a dropdown to control month
+                selectYears: true, // Creates a dropdown of 15 years to control year,
+                today: 'Today',
+                clear: 'Clear',
+                close: 'Ok',
+                closeOnSelect: false // Close upon selecting a date,
+            });
+*/            
+
+/* Supposed jquery for the select table in addbok for the book_score... not working
+            $(document).ready(function(){
+                $('select').formSelect();
+            }); 
+*/
+            document.getElementById("matfix").addEventListener("click", function(e) {
+                e.stopPropagation();
+            });
+        </script>
+    </body>
+</html>
