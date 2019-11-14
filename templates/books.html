@@ -7,36 +7,14 @@
         <div class="collapsible-header">
             <div>
                 <a href="{{ url_for('edit_book', book_id=book._id) }}" method='POST' class="waves-effect waves-teal btn-flat">Edit</a>
+                 <a href="{{ url_for('delete_book', book_id=book._id) }}" class="waves-effect waves-teal btn-flat">Delete</a>
                 <i class="material-icons col s6">expand_more</i> <strong>{{book.book_title }} </strong>  - {{book.book_author}} - {{book.book_year}}
-            </div>
-            <div>
-                <!-- <a class="waves-effect waves-light btn btn_small button right">Edit</a> -->
-            </div>    
+            </div>   
         </div>
         <div class="collapsible-body">
             <span> {{book.book_review}} </span>
         </div>
     </li>
-        <!-- {{book.book_title}}
-        {{book.book_genre}}
-        {{book.book_author}}
-        {{book.book_year}}
-        {{book.book_review}}
-        {{book.book_score}} -->
     {% endfor %}
 </ul>
-<!-- <ul class="collapsible" data-collapsible="accordion">
-    <li>
-        <div class="collapsible-header"><i class="material-icons">expand_more</i> First </div>
-        <div class="collapsible-body"><span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum corporis modi eum earum, sit facilis itaque nesciunt nisi eligendi? Quis nemo nulla enim error architecto numquam, fuga officia veritatis, beatae eligendi voluptas ut! Praesentium culpa iste dignissimos doloribus eum aliquid mollitia, quasi, voluptates quia molestias aspernatur facere, magni a reprehenderit.</span></div>
-    </li>
-    <li>
-        <div class="collapsible-header"><i class="material-icons">place</i>Second</div>
-        <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-    </li>
-    <li>
-        <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
-        <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-    </li>
-</ul> -->
 {% endblock %}        

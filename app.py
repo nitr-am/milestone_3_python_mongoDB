@@ -13,14 +13,14 @@ mongo = PyMongo(app)
 
 @app.route('/')
 @app.route('/show_books')
-def hello():
+def show_books():
     return render_template("books.html", books=mongo.db.books.find())
 
 @app.route('/add_book')
 def add_book():
     return render_template('addbook.html',
-    scores=mongo.db.scores.find(),
-    genres=mongo.db.genres.find())
+                            scores=mongo.db.scores.find(),
+                            genres=mongo.db.genres.find())
 
 @app.route('/add_new_book', methods=['POST'])
 def add_new_book():
@@ -42,16 +42,19 @@ def update_book(book_id):
     books = mongo.db.books
     books.update( {'_id': ObjectId(book_id)},
     {
-        'book_title':request.form.get('book_title'),
-        'book_author':request.form.get('book_author'),
-        'book_year':request.form.get('book_year'),
-        'book_genre':request.form.get('book_genre'),
-        'book_score':request.form.get('book_score'),
+        'book_title': request.form.get('book_title'),
+        'book_author': request.form.get('book_author'),
+        'book_year': request.form.get('book_year'),
+        'book_genre': request.form.get('book_genre'),
+        'book_score': request.form.get('book_score'),
         'book_review': request.form.get('book_review')
     })
     return redirect(url_for('show_books'))
 
-
+@app.route('/delete_book/<book_id>')
+def delete_book(book_id):
+    mongo.db.books.remove({'_id': ObjectId(book_id)})
+    return redirect(url_for('show_books'))
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP', "0.0.0.0"),

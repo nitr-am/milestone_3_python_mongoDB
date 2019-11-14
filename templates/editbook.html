@@ -3,17 +3,17 @@
 
 <h3>Edit Book</h3>
 <div class="row">
-    <form  action="{{ url_for('add_new_book', book_id=book._id) }}" method="POST" class="col s12">
+    <form  action="{{ url_for('update_book', book_id=book._id) }}" method="POST" class="col s12">
         <div class="row">
             <div class="input-field col s6">
                 <i class="material-icons prefix">library_add</i>
-                <input id="book_title" type="text" class="validate" value="{{book.book_title}}">
+                <input id="book_title" name='book_title' type="text" class="validate" value='{{book.book_title}}'>
                 <label for="icon_prefix">Book title</label>
             </div>
 <!-- Editing Author  -->            
             <div class="input-field col s6">
                 <i class="material-icons prefix">person</i>
-                <input id="book_author" type="tel" class="validate" value="{{book.book_author}}">
+                <input id="book_author" name='book_author' type="tel" class="validate" value='{{book.book_author}}'>
                 <label for="icon_telephone">Author</label>
             </div>
         </div>
@@ -21,7 +21,7 @@
         <div class="row">
             <div id='matfix' class="input-field col s3">
                 <i class="material-icons prefix">date_range</i>
-                <input id="book_year" type="text" class="datepicker" value="{{book.book_year}}">
+                <input id="book_year" name='book_year' type="text" class="datepicker" value='{{book.book_year}}'>
                 <label for="icon_prefix">Publication year</label>
             </div>
 
