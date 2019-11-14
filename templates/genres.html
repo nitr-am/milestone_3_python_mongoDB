@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="row">
+    <h3>Genres</h3>
+    <ul class="collapsible" data-collapsible="accordion">
+        {% for genre in genres %}
+        <li>
+            <div class="collapsible-header">
+                <div>
+                    <a href="{{url_for('edit_genre', genre_id=genre._id)}}" method='POST' class="waves-effect waves-teal btn-flat">Edit</a>
+                    <a href="{{url_for('delete_genre', genre_id=genre._id)}}" class="waves-effect waves-teal btn-flat">Delete</a>
+                    <strong>{{ genre.book_genre }}</strong>
+                </div>   
+            </div>
+
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+<div class="row">
+    <a href="{{url_for('add_new_genre')}}" class="waves-effect waves-light btn">
+        <i class="material-icons right">playlist_add</i>Add New Genre
+    </a>
+</div>
+
+{% endblock %}        

@@ -56,6 +56,40 @@ def delete_book(book_id):
     mongo.db.books.remove({'_id': ObjectId(book_id)})
     return redirect(url_for('show_books'))
 
+@app.route('/show_genres')
+def show_genres():
+    return render_template('genres.html',
+                           genres=mongo.db.genres.find())
+
+@app.route('/edit_genre/<genre_id>')
+def edit_genre(genre_id):
+    return render_template('editgenre.html',
+                           genre=mongo.db.genres.find_one(
+                           {'_id': ObjectId(genre_id)}))                               
+
+@app.route('/update_genre/<genre_id>', methods=['POST'])
+def update_genre(genre_id):
+    mongo.db.genres.update(
+        {'_id': ObjectId(genre_id)},
+        {'book_genre': request.form.get('book_genre')})
+    return redirect(url_for('show_genres'))
+
+@app.route('/delete_genre/<genre_id>')
+def delete_genre(genre_id):
+    mongo.db.genres.remove({'_id': ObjectId(genre_id)})
+    return redirect(url_for('show_genres'))    
+
+@app.route('/add_genre', methods=['POST'])
+def add_genre():
+    genres = mongo.db.genres
+    genre_doc = {'book_genre': request.form.get('book_genre')}
+    genres.insert_one(genre_doc)
+    return redirect(url_for('show_genres'))
+
+@app.route('/add_new_genre')
+def add_new_genre():
+    return render_template('addgenre.html')    
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP', "0.0.0.0"),
             port=int(os.environ.get('PORT', 3000)),
