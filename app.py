@@ -28,6 +28,30 @@ def add_new_book():
     books.insert_one(request.form.to_dict())
     return redirect(url_for('show_books'))    
 
+@app.route('/edit_book/<book_id>')
+def edit_book(book_id):
+    the_book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
+    all_genres = mongo.db.genres.find()
+    all_scores = mongo.db.scores.find()
+    return render_template('editbook.html', book=the_book,
+                           genres=all_genres,
+                           scores=all_scores)
+
+@app.route('/update_book/<book_id>', methods=["POST"])
+def update_book(book_id):
+    books = mongo.db.books
+    books.update( {'_id': ObjectId(book_id)},
+    {
+        'book_title':request.form.get('book_title'),
+        'book_author':request.form.get('book_author'),
+        'book_year':request.form.get('book_year'),
+        'book_genre':request.form.get('book_genre'),
+        'book_score':request.form.get('book_score'),
+        'book_review': request.form.get('book_review')
+    })
+    return redirect(url_for('show_books'))
+
+
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP', "0.0.0.0"),
