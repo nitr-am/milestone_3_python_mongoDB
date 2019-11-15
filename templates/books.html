@@ -7,9 +7,9 @@
     <li>
         <div class="collapsible-header">
             <div>
-                <a href="{{ url_for('edit_book', book_id=book._id) }}" method='POST' class="waves-effect waves-teal btn-flat">Edit</a>
-                 <a href="{{ url_for('delete_book', book_id=book._id) }}" class="waves-effect waves-teal btn-flat">Delete</a>
-                <i class="material-icons col s6">expand_more</i> <strong>{{book.book_title }} </strong>  - {{book.book_author}} - {{book.book_year}}
+                <a href="{{ url_for('edit_book', book_id=book._id) }}" method='POST' class="waves-effect waves-teal btn-flat btn-small specs">Edit</a>
+                <a href="{{ url_for('delete_book', book_id=book._id) }}" class="waves-effect waves-teal btn-flat btn-small specs">Delete</a>
+                <i class="material-icons arrow col s6">expand_more</i> <strong>{{book.book_title }} </strong>  - {{book.book_author}} - {{book.book_year}}
             </div>   
         </div>
         <div class="collapsible-body">

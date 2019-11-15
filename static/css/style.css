@@ -5,3 +5,15 @@
     margin: 5px 5px;
     padding: 0 0.5em;
 }
+
+.style {
+    margin: 15px;
+}
+
+.arrow {
+    margin-left: 1rem;
+}
+
+body {
+    background-color: #d6e6f3;
+}
