@@ -24,7 +24,16 @@ I took the structure of my project from a project done prior to this one in the 
 The use of python language in a combination with databases usage coming from MongoDB. 
 It was a challenge for me, but at the end it was highly rewarding as well because I feel I complitely understood wverything I did and for me that is the most imporant thing. 
 
+#### Wireframes:
+
+The wireframes for the application were done using Balsamiq:
+
+- [Main page](/wireframes/main_page.png/)
+- [Add Book](/wireframes/add_book.png/)
+
 ## Features
+
+This application is simple. That is what is needed. Plane, easy to read and to use. 
 
 ### Existing Features
 
