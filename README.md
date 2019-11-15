@@ -5,6 +5,8 @@
 This is my online books reading history. Here I can add all the books I am reading, and that I am going to read. I can add some details about the books, like the genre, date of puclication, how much did I liked it and some comments about it.
 This will be very usefull because many times we forget the books we read, and as they are precious for me I want to have them somewhere and being able to consult them anytime.
 This is good also because I can keep count of the books I read. 
+There is another intention for doing the project and is to demonstrate knowledge of Python, a high level language that connects with a server and in MongoDB a document oriented database and the connection of both, being able to manipulate datasets stored in MongoDB straight from Python. 
+*Goal achieved!* 
 
 ## UX
 
