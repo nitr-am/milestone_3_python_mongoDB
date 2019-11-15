@@ -57,6 +57,7 @@ There is still to be done a filter by genre books search.
 
 The technologies used for the development of the project so far are: 
 - HTML: to edit the content.
+- CSS: to get some personal styling. 
 - Python: to create my back-end application which connects with the server. It "GET" and "POST" the needed data.
 - Javascript: To give interactivity to the project. 
 - Jquery: As a Javascript library to help with the interactivity. 
